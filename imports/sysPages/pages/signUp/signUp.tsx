@@ -12,7 +12,12 @@ import Box from '@mui/material/Box';
 import { IUserProfile } from '/imports/modules/userprofile/api/userProfileSch';
 import AppLayoutContext from '/imports/app/appLayoutProvider/appLayoutContext';
 import { useNavigate } from 'react-router-dom';
-import { textfieldSx } from '../signUp/signUpStyle';
+
+
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 interface ISignUp {
 	showNotification: (options?: Object) => void;
@@ -21,7 +26,7 @@ interface ISignUp {
 }
 
 export const SignUp = (props: ISignUp) => {
-	const { Container, Content, FormContainer, FormWrapper, StyledLoginButton } = signUpStyle;
+	const { Background, Container, Content, LoginHeader, LoginLabel, SysLoginTextField, ForgotPassword, FormContainer, FormWrapper, StyledLoginButton } = signUpStyle;
 	const { showNotification } = useContext(AppLayoutContext);
 	const navigate = useNavigate();
 
@@ -54,26 +59,68 @@ export const SignUp = (props: ISignUp) => {
 	};
 
 	return (
-		<Container>
-			<Content>
-				<Box component="img" src="/images/wireframe/synergia-logo.svg" sx={{ width: '100%', maxWidth: '400px' }} />
-				<FormContainer>
-					<Box sx={{ display: 'flex', flexDirection: 'flex-start', textAlign: 'left', width: '100%' }}>
-						<Typography variant="h5">Sign up</Typography>
-					</Box>
-					<SysForm schema={signUpSchema} onSubmit={handleSubmit}>
-						<FormWrapper>
-							<SysTextField name="username" fullWidth type="text" placeholder="Digite um nome de usuário" />
-							<SysTextField name="email" fullWidth type="email" placeholder="Digite um email" />
-							<SysTextField name="password" fullWidth type="password" placeholder="Digite uma senha" />
-							<Button variant="text" sx={{ alignSelf: 'flex-end', border: 0, padding: 0 }} onClick={handleLogin}>
-								<Typography variant="link">Já possui conta? faça seu login</Typography>
-							</Button>
-							<StyledLoginButton variant="contained">Cadastrar</StyledLoginButton>
-						</FormWrapper>
-					</SysForm>
-				</FormContainer>
-			</Content>
-		</Container>
+		<Background>
+			<Container>
+				<Content>
+					<LoginHeader>
+						<LoginLabel >
+							Register
+						</LoginLabel>
+					</LoginHeader>
+					<FormContainer>
+						<SysForm schema={signUpSchema} onSubmit={handleSubmit}>
+							<FormWrapper>
+								<SysLoginTextField
+									variant="outlined"
+									name="username"
+									fullWidth
+									type="text"
+									placeholder="Digite um nome de usuário"
+									endAdornment={<PersonIcon />}
+								/>
+								<SysLoginTextField
+									variant="outlined"
+									name="email"
+									fullWidth
+									type="email"
+									placeholder="Digite um email"
+									endAdornment={<EmailIcon />}
+								/>
+								<SysLoginTextField
+									variant="outlined"
+									name="password"
+									fullWidth
+									type="password"
+									placeholder="Digite uma senha"
+									endAdornment={<LockIcon />}
+								/>
+								<StyledLoginButton
+									variant="contained"
+									endIcon={<PersonAddAltIcon />}
+								>
+									Cadastrar
+								</StyledLoginButton>
+
+							</FormWrapper>
+							<ForgotPassword>
+								Já tem uma conta? {' '}
+								<Link
+									to="/signin"
+									style={{
+										textDecoration: 'none',
+										color: '#fff',
+										fontWeight: 700
+									}}
+									onMouseOver={e => (e.currentTarget.style.textDecoration = 'underline')}
+									onMouseOut={e => (e.currentTarget.style.textDecoration = 'none')}
+								>
+									Faça login
+								</Link>
+							</ForgotPassword>
+						</SysForm>
+					</FormContainer>
+				</Content>
+			</Container>
+		</Background>
 	);
 };

@@ -1,3 +1,88 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+
+	/*========== Colors ==========*/
+	--body-color: #18191A;
+	--container-color: #2B2C2D;
+	--color-accent: #6768F2;
+	--color-accent-dark: #3C3C8C;
+	--title-color: #FFFFFF;
+	--text-color: #B7B8B8;
+
+	/*========== Font and typography ==========*/
+	--body-font: 'Outfit', sans-serif;
+	--font-family: 'Outfit', sans-serif;
+
+	/*.5rem = 8px | 1rem = 16px ...*/
+	--font-size-extra-small: 0.625rem;
+	/* 10 */
+	--font-size-smaller: 0.75rem;
+	/* 12 */
+	--font-size-small: 0.8125rem;
+	/* 13 */
+	--font-size-medium-small: 0.875rem;
+	/* 14 */
+	--font-size-medium: 0.9375rem;
+	/* 15 */
+	--font-size-base: 1rem;
+	/* 16 */
+	--font-size-large: 1.25rem;
+	/* 20 */
+	--font-size-larger: 1.5rem;
+	/* 24 */
+	--font-size-extra-large: 2.125rem;
+	/* 34 */
+	--font-size-big: 3rem;
+	/* 48 */
+	--font-size-bigger: 3.75rem;
+	/* 60 */
+	--font-size-huge: 6rem;
+	/* 96 */
+
+	/*========== Font weight ==========*/
+	--font-normal: 400;
+	--font-medium: 500;
+	--font-semi-bold: 600;
+	--font-bold: 700;
+
+	/*========== Margenes Bottom ==========*/
+	/*.5rem = 8px | 1rem = 16px ...*/
+
+	--mb-0-25: 0.25rem;
+	/* 4px */
+	--mb-0-5: 0.5rem;
+	/* 8px */
+	--mb-0-75: 0.75rem;
+	/* 12px */
+	--mb-1: 1rem;
+	/* 16px */
+	--mb-1-5: 1.5rem;
+	/* 24px */
+	--mb-2: 2rem;
+	/* 32px */
+	--mb-2-5: 2.5rem;
+	/* 40px */
+	--mb-3: 3rem;
+	/* 48px */
+	--mb-3-5: 3.5rem;
+	/* 56px */
+	--mb-4: 4rem;
+	/* 64px */
+	--mb-4-5: 4.5rem;
+	/* 72px */
+	--mb-5: 5rem;
+	/* 80px */
+	--mb-5-5: 5.5rem;
+	/* 88px */
+	--mb-6: 6rem;
+	/* 96px */
+
+	/*========== z index ==========*/
+	--z-tooltip: 10;
+	--z-fixed: 100;
+	--z-modal: 1000;
+}
+
 :root {
 	--loading-color: #6768f2;
 	--loader-border: #6768f21a;
@@ -25,7 +110,8 @@ body {
 }
 
 .custom-list-item::before {
-	content: '• '; /* Unicode for bullet */
+	content: '• ';
+	/* Unicode for bullet */
 	margin-right: 5px;
 }
 
@@ -73,6 +159,7 @@ body {
 	from {
 		transform: rotate(0deg);
 	}
+
 	to {
 		transform: rotate(360deg);
 	}

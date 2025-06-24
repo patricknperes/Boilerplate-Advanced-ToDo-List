@@ -4,146 +4,218 @@ import { styled, keyframes } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { sysSizing } from '../../../ui/materialui/styles';
 import SysFormButton from '../../../ui/components/sysFormFields/sysFormButton/sysFormButton';
+import SysTextField from '../../../ui/components/sysFormFields/sysTextField/sysTextField';
+import Typography from '@mui/material/Typography';
 
 interface ISignInStyles {
+	Background: React.ElementType;
 	Container: React.ElementType;
 	Content: React.ElementType;
+	LoginHeader: React.ElementType;
+	LoginLabel: React.ElementType;
 	FormContainer: React.ElementType;
 	FormWrapper: React.ElementType;
+	FormField: React.ElementType;
 	StyledLoginButton: React.ElementType;
-	Logo: React.ElementType;
+	ForgotPassword: React.ElementType;
+	SysLoginTextField: React.ElementType;
 }
 
-const shrinkFromHome = keyframes`
-  0% {
-    width: 100%;
-    min-height: 75vh;
-    max-height: 75vh;
-	max-width: 1300px;
-    transform: scale(1);
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
-    opacity: 1;
-	transform: translateY(-30px);
-  }
-  50% {
-    transform: scale(0.7);
-    opacity: 0.9;
-  }
-  100% {
-    width: 100%;
-    max-width: 400px;
-    max-height: 450px;
-    transform: scale(1);
-    border-radius: ${sysSizing.radiusLg};
-    background-color: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(3px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transform: translateY(0);
-  }
-`;
-
-const growVertical = keyframes`
-	0% {
-		max-height: 470px;
-		opacity: 1;
-	}
-	100% {
-		max-height: 450px;
-		opacity: 1;
-	}
-`;
-
-const descendFromTop = keyframes`
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
-
 const SignInStyles = (from: string): ISignInStyles => ({
-	Container: styled(Box)(({ theme }) => ({
-		minHeight: '100vh',
-		width: '100%',
-		color: theme.palette.primary.contrastText,
-		position: 'relative',
 
-		backgroundImage: 'url(/images/wireframe/Cloudy.svg)',
-		backgroundSize: 'cover',
-		backgroundPosition: 'right'
-	})),
-	Content: styled(Box)(({ theme }) => ({
+	Background: styled(Box)(({ theme }) => ({
 		width: '100%',
-		height: '100%',
+		backgroundImage: 'url(/images/wireframe/bg-florest.svg)',
+		backgroundSize: 'cover',
+		backgroundPosition: 'center',
+		backgroundRepeat: 'no-repeat',
+	})),
+
+	Container: styled(Box)(({ theme }) => ({
 		display: 'flex',
-		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center',
-		gap: theme.spacing(6),
-		padding: `${sysSizing.spacingFixedLg} ${sysSizing.spacingFixedXl}`,
-
-		[theme.breakpoints.up('md')]: {
-			width: '100%',
-			height: '100%',
-			position: 'center',
-			justifyContent: 'center',
-			alignItems: 'center',
-			top: '50%',
-			left: '10%'
-		}
+		minHeight: '100vh',
+		backgroundColor: 'rgba(0, 0, 0, 0.2)',
+		[theme.breakpoints.down('sm')]: {
+			padding: '0 1em',
+		},
 	})),
+
+	Content: styled(Box)(({ theme }) => ({
+		position: 'relative',
+		width: '450px',
+		backdropFilter: 'blur(25px)',
+		border: '2px solid white',
+		borderRadius: sysSizing.radiusMd,
+		padding: '7.5em 2.5em 4em 2.5em',
+		color: theme.palette.primary.contrastText,
+		boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.3)',
+		animation: 'slideIn 0.8s ease-out',
+		'@keyframes slideIn': {
+			'0%': { transform: 'translateY(50px)', opacity: 0 },
+			'100%': { transform: 'translateY(0)', opacity: 1 },
+		},
+		[theme.breakpoints.down('md')]: {},
+		[theme.breakpoints.down('sm')]: {
+			width: '400px',
+			padding: '7.5em 2em 3em 2em',
+		},
+	})),
+
+	LoginHeader: styled(Box)(({ theme }) => ({
+		position: 'absolute',
+		top: '0',
+		left: '50%',
+		transform: 'translateX(-50%)',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: 'white',
+		width: '140px',
+		height: '70px',
+		borderRadius: '0 0 20px 20px',
+		'&:before': {
+			content: '""',
+			position: 'absolute',
+			top: '0px',
+			left: '-30px',
+			width: '30px',
+			height: '30px',
+			borderTopRightRadius: '50%',
+			background: 'transparent',
+			boxShadow: `15px 0 0 0 white`,
+		},
+		'&:after': {
+			content: '""',
+			position: 'absolute',
+			top: '0px',
+			right: '-30px',
+			width: '30px',
+			height: '30px',
+			borderTopLeftRadius: '50%',
+			background: 'transparent',
+			boxShadow: `-15px 0 0 0 white`,
+		},
+	})),
+
+	LoginLabel: styled(Typography)(({ theme }) => ({
+		fontSize: '30px',
+		color: 'black',
+		fontWeight: '500',
+	})),
+
 	FormContainer: styled(Paper)(({ theme }) => ({
 		width: '100%',
-		height: '100%',
-		padding: `${sysSizing.spacingFixedLg} ${sysSizing.spacingFixedXl}`,
-		borderRadius: sysSizing.radiusLg,
-		boxShadow: theme.shadows[3],
-		gap: sysSizing.spacingFixedXl,
+		backgroundColor: 'transparent',
+		border: 'none',
+		boxShadow: 'none',
+		gap: '20px',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'space-evenly',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
-		maxWidth: '400px',
-		maxHeight: '450px',
-		backgroundColor: 'rgba(255, 255, 255, 0.95)',
-		backdropFilter: 'blur(3px)',
-		animation: from === 'home' ? `${shrinkFromHome} 0.5s ease-in-out` : `${growVertical} 0.5s ease-in-out`
 	})),
+
 	FormWrapper: styled(Box)(({ theme }) => ({
 		width: '100%',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center',
-		gap: theme.spacing(2),
-		opacity: 1
+		gap: '25px',
 	})),
+
 	StyledLoginButton: styled(SysFormButton)(({ theme }) => ({
-		background: `linear-gradient(135deg, ${theme.palette.todoColors.lightPurple}, ${theme.palette.todoColors.enchantBlue})`,
 		width: '100%',
-		borderRadius: '20px',
-		padding: `${theme.spacing(1.5)} ${theme.spacing(3)}`,
-		fontWeight: 600,
-		textTransform: 'none',
-		boxShadow: theme.shadows[2],
+		height: '52px',
+		backgroundColor: 'white',
+		color: 'black',
+		fontSize: '16px',
+		fontWeight: '500',
+		border: 'none',
+		borderRadius: '30px',
+		cursor: 'pointer',
+		transition: '0.3s',
 		'&:hover': {
-			boxShadow: theme.shadows[4]
-		}
+			backgroundColor: '#f0f0f0',
+			border: 'none',
+		},
 	})),
-	Logo: styled(Box)(({ theme }) => ({
+
+	ForgotPassword: styled(Typography)(({ theme }) => ({
+		marginTop: '-5px',
+		alignSelf: 'center',
+		textTransform: 'none',
+		textDecoration: 'none',
+		padding: '0',
+		cursor: 'pointer',
+		color: 'white',
+		fontSize: '15px',
+		borderRadius: sysSizing.radiusSm,
+		'&:hover': {
+		},
+		[theme.breakpoints.down('sm')]: {
+			fontSize: '14px',
+		},
+	})),
+
+	SysLoginTextField: styled(SysTextField)(({ theme }) => ({
 		width: '100%',
-		maxWidth: '400px',
-		...(from === 'home' && {
-			animationDelay: '1.5s',
-			animation: `${descendFromTop} 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards`
-		})
-	}))
+		fontSize: '1rem',
+		background: 'transparent',
+		paddingInline: '10px 10px',
+		color: '#fff',
+		border: '2px solid #fff',
+		borderRadius: '30px',
+		outline: 'none',
+		'& .MuiOutlinedInput-root': {
+			'& fieldset': {
+				borderColor: 'transparent',
+			},
+			'&:hover fieldset': {
+				borderColor: 'transparent',
+			},
+			'&.Mui-focused fieldset': {
+				border: 'transparent',
+				borderWidth: 2,
+			},
+			'& input': {
+				color: '#fff',
+			},
+			'&:-webkit-autofill': {
+				'-webkit-text-fill-color': '#fff',
+				'-webkit-box-shadow': '0 0 0px 1000px transparent inset',
+				transition: 'background-color 5000s ease-in-out 0s',
+			},
+			'&:-webkit-autofill:focus': {
+				'-webkit-text-fill-color': '#fff',
+				'-webkit-box-shadow': '0 0 0px 1000px transparent inset',
+			},
+		},
+		'& .MuiInputLabel-root': {
+			display: 'none', // Ensure label is hidden
+		},
+		'& input::placeholder': {
+			color: '#fff',
+			opacity: 1,
+		},
+		'& .MuiInputAdornment-root': {
+			color: '#fff',
+			'& .MuiSvgIcon-root': {
+				color: '#fff',
+			},
+		},
+	})),
+
+	FormField: styled(Box)(({ theme }) => ({
+		width: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		gap: '25px',
+	})),
 });
 
 export default SignInStyles;

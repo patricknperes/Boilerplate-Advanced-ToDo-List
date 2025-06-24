@@ -116,7 +116,7 @@ const SysTextField: React.FC<ISysTextFieldProps> = ({
 	if (readOnly)
 		return (
 			<SysViewField
-				label={label}
+				label={''}
 				placeholder={valueState || '-'}
 				showLabelAdornment={showLabelAdornment}
 				labelAdornment={labelAdornment}
@@ -125,7 +125,7 @@ const SysTextField: React.FC<ISysTextFieldProps> = ({
 
 	return (
 		<SysLabelView
-			label={label}
+			label={''}
 			showLabelAdornment={showLabelAdornment}
 			labelAdornment={labelAdornment}
 			disabled={disabled}
