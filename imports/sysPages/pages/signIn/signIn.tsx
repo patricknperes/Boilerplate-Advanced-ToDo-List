@@ -2,16 +2,10 @@ import React, { useContext, useEffect } from 'react';
 import SignInStyles from './signInStyles';
 import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
-import SysTextField from '../../../ui/components/sysFormFields/sysTextField/sysTextField';
 import SysForm from '../../../ui/components/sysForm/sysForm';
-import SysFormButton from '../../../ui/components/sysFormFields/sysFormButton/sysFormButton';
 import { signInSchema } from './signinsch';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import AuthContext, { IAuthContext } from '/imports/app/authProvider/authContext';
 import AppLayoutContext from '/imports/app/appLayoutProvider/appLayoutContext';
-
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import LoginIcon from '@mui/icons-material/Login';
@@ -49,7 +43,15 @@ const SignInPage: React.FC = () => {
 				<Content>
 					<LoginHeader>
 						<LoginLabel>
-							Login
+							<Link
+								to="/"
+								style={{
+									textDecoration: 'none',
+									color: 'var(--body-color)',
+								}}
+							>
+								Login
+							</Link>
 						</LoginLabel>
 					</LoginHeader>
 					<FormContainer>
@@ -85,18 +87,18 @@ const SignInPage: React.FC = () => {
 									Entrar
 								</StyledLoginButton>
 								<ForgotPassword>
-									Já tem uma conta? {' '}
+									Não tem uma conta? {' '}
 									<Link
 										to="/signup"
 										style={{
 											textDecoration: 'none',
-											color: '#fff',
-											fontWeight: 700
+											color: 'var(--title-color)',
+											fontWeight: 'var(--font-bold)',
 										}}
 										onMouseOver={e => (e.currentTarget.style.textDecoration = 'underline')}
 										onMouseOut={e => (e.currentTarget.style.textDecoration = 'none')}
 									>
-										Faça login
+										Cadastre-se
 									</Link>
 								</ForgotPassword>
 							</FormWrapper>

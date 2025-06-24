@@ -1,8 +1,6 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import { sysSizing } from '../../../ui/materialui/styles';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 

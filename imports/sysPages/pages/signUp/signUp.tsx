@@ -1,19 +1,12 @@
 import React, { useContext, useRef } from 'react';
 import { Form, Link, NavigateFunction } from 'react-router-dom';
-import SysTextField from '../../../ui/components/sysFormFields/sysTextField/sysTextField';
-import SysFormButton from '../../../ui/components/sysFormFields/sysFormButton/sysFormButton';
 import { userprofileApi } from '../../../modules/userprofile/api/userProfileApi';
 import SysForm from '../../../ui/components/sysForm/sysForm';
 import { signUpSchema } from './signupsch';
-import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
 import signUpStyle from './signUpStyle';
-import Box from '@mui/material/Box';
 import { IUserProfile } from '/imports/modules/userprofile/api/userProfileSch';
 import AppLayoutContext from '/imports/app/appLayoutProvider/appLayoutContext';
 import { useNavigate } from 'react-router-dom';
-
-
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
@@ -64,7 +57,15 @@ export const SignUp = (props: ISignUp) => {
 				<Content>
 					<LoginHeader>
 						<LoginLabel >
-							Register
+							<Link
+								to="/"
+								style={{
+									textDecoration: 'none',
+									color: 'var(--body-color)',
+								}}
+							>
+								Register
+							</Link>
 						</LoginLabel>
 					</LoginHeader>
 					<FormContainer>
@@ -75,7 +76,7 @@ export const SignUp = (props: ISignUp) => {
 									name="username"
 									fullWidth
 									type="text"
-									placeholder="Digite um nome de usuário"
+									placeholder="Digite um username"
 									endAdornment={<PersonIcon />}
 								/>
 								<SysLoginTextField
@@ -108,8 +109,8 @@ export const SignUp = (props: ISignUp) => {
 									to="/signin"
 									style={{
 										textDecoration: 'none',
-										color: '#fff',
-										fontWeight: 700
+										color: 'var(--title-color)',
+										fontWeight: 'var(--font-bold)',
 									}}
 									onMouseOver={e => (e.currentTarget.style.textDecoration = 'underline')}
 									onMouseOut={e => (e.currentTarget.style.textDecoration = 'none')}

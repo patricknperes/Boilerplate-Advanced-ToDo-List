@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Box, Button, useTheme, useMediaQuery } from '@mui/material';
+import { useTheme, useMediaQuery } from '@mui/material';
 import advancedToDoHomeStyle from './advancedToDoHomeStyles';
 import { useNavigate } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const AdvancedToDoHome = () => {

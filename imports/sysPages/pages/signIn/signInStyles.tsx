@@ -46,7 +46,7 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		position: 'relative',
 		width: '450px',
 		backdropFilter: 'blur(25px)',
-		border: '2px solid white',
+		border: '2px solid var(--title-color)',
 		borderRadius: sysSizing.radiusMd,
 		padding: '7.5em 2.5em 4em 2.5em',
 		color: theme.palette.primary.contrastText,
@@ -71,7 +71,7 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: 'white',
+		backgroundColor: 'var(--title-color)',
 		width: '140px',
 		height: '70px',
 		borderRadius: '0 0 20px 20px',
@@ -84,7 +84,7 @@ const SignInStyles = (from: string): ISignInStyles => ({
 			height: '30px',
 			borderTopRightRadius: '50%',
 			background: 'transparent',
-			boxShadow: `15px 0 0 0 white`,
+			boxShadow: `15px 0 0 0 var(--title-color)`,
 		},
 		'&:after': {
 			content: '""',
@@ -95,14 +95,17 @@ const SignInStyles = (from: string): ISignInStyles => ({
 			height: '30px',
 			borderTopLeftRadius: '50%',
 			background: 'transparent',
-			boxShadow: `-15px 0 0 0 white`,
+			boxShadow: `-15px 0 0 0 var(--title-color)`,
 		},
 	})),
 
 	LoginLabel: styled(Typography)(({ theme }) => ({
-		fontSize: '30px',
-		color: 'black',
-		fontWeight: '500',
+		fontSize: '34px',
+		color: 'var(--body-color)',
+		fontWeight: 'var(--font-medium)',
+		[theme.breakpoints.down('md')]: {
+			fontSize: '30px',
+		},
 	})),
 
 	FormContainer: styled(Paper)(({ theme }) => ({
@@ -110,7 +113,7 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		backgroundColor: 'transparent',
 		border: 'none',
 		boxShadow: 'none',
-		gap: '20px',
+		gap: 'var(--mb-1-5)',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
@@ -123,22 +126,23 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center',
-		gap: '25px',
+		gap: 'var(--mb-1-5)',
 	})),
 
 	StyledLoginButton: styled(SysFormButton)(({ theme }) => ({
 		width: '100%',
 		height: '52px',
-		backgroundColor: 'white',
-		color: 'black',
+		backgroundColor: 'var(--title-color)',
+		color: 'var(--body-color)',
 		fontSize: '16px',
-		fontWeight: '500',
+		fontWeight: 'var(--font-semi-bold)',
 		border: 'none',
 		borderRadius: '30px',
 		cursor: 'pointer',
 		transition: '0.3s',
 		'&:hover': {
-			backgroundColor: '#f0f0f0',
+			backgroundColor: 'var(--color-accent)',
+			color: 'var(--title-color)',
 			border: 'none',
 		},
 	})),
@@ -151,22 +155,17 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		padding: '0',
 		cursor: 'pointer',
 		color: 'white',
-		fontSize: '15px',
+		fontSize: 'var(--font-size-base)',
 		borderRadius: sysSizing.radiusSm,
-		'&:hover': {
-		},
-		[theme.breakpoints.down('sm')]: {
-			fontSize: '14px',
-		},
 	})),
 
 	SysLoginTextField: styled(SysTextField)(({ theme }) => ({
 		width: '100%',
-		fontSize: '1rem',
+		fontSize: 'var(--font-size-base)',
 		background: 'transparent',
 		paddingInline: '10px 10px',
-		color: '#fff',
-		border: '2px solid #fff',
+		color: 'var(--body-color)',
+		border: '2px solid var(--title-color)',
 		borderRadius: '30px',
 		outline: 'none',
 		'& .MuiOutlinedInput-root': {
@@ -181,15 +180,15 @@ const SignInStyles = (from: string): ISignInStyles => ({
 				borderWidth: 2,
 			},
 			'& input': {
-				color: '#fff',
+				color: 'var(--title-color)',
 			},
 			'&:-webkit-autofill': {
-				'-webkit-text-fill-color': '#fff',
+				'-webkit-text-fill-color': 'var(--title-color)',
 				'-webkit-box-shadow': '0 0 0px 1000px transparent inset',
 				transition: 'background-color 5000s ease-in-out 0s',
 			},
 			'&:-webkit-autofill:focus': {
-				'-webkit-text-fill-color': '#fff',
+				'-webkit-text-fill-color': 'var(--title-color)',
 				'-webkit-box-shadow': '0 0 0px 1000px transparent inset',
 			},
 		},
@@ -197,13 +196,13 @@ const SignInStyles = (from: string): ISignInStyles => ({
 			display: 'none', // Ensure label is hidden
 		},
 		'& input::placeholder': {
-			color: '#fff',
+			color: 'var(--title-color)',
 			opacity: 1,
 		},
 		'& .MuiInputAdornment-root': {
-			color: '#fff',
+			color: 'var(--title-color)',
 			'& .MuiSvgIcon-root': {
-				color: '#fff',
+				color: 'var(--title-color)',
 			},
 		},
 	})),
@@ -214,7 +213,7 @@ const SignInStyles = (from: string): ISignInStyles => ({
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'center',
-		gap: '25px',
+		gap: 'var(--mb-1-5)',
 	})),
 });
 
