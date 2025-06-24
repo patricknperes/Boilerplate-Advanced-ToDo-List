@@ -5,6 +5,7 @@ import { sysSizing } from '/imports/ui/materialui/styles';
 import { SysSectionPaddingXY } from '/imports/ui/layoutComponents/sysLayoutComponents';
 
 interface ITodoWelcomeStyles {
+	Background: ElementType<BoxProps>;
 	Container: ElementType<BoxProps>;
 	ListContainer: ElementType<BoxProps>;
 	ListWrapper: ElementType<BoxProps>;
@@ -15,23 +16,26 @@ interface ITodoWelcomeStyles {
 }
 
 const TodoWelcomeStyles: ITodoWelcomeStyles = {
+
+	Background: styled(Box)(({ theme }) => ({
+		width: '100%',
+		backgroundColor: 'var(--body-color)',
+	})),
+
 	Container: styled(SysSectionPaddingXY)(({ theme }) => ({
+		width: '100%',
+		maxWidth: '1200px',
+		margin: '0 auto',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'flex-start',
 		alignItems: 'center',
-		width: '100%',
-		minHeight: '100vh',
-		overflowY: 'auto',
-		gap: sysSizing.spacingFixedMd,
-		backgroundColor: '#1F222B',
-		backgroundImage: 'linear-gradient(to bottom, #262D40, #1F2737)',
-		backgroundAttachment: 'fixed',
-		padding: '4rem, 1rem',
-		[theme.breakpoints.down('sm')]: {
-			padding: '3vh 1rem'
+		justifyContent: 'center',
+		padding: '7.5rem 2.5rem',
+		[theme.breakpoints.down('md')]: {
+			padding: '4.5rem 2.5rem',
 		}
 	})),
+
 	ListContainer: styled(Box)(({ theme }) => ({
 		width: '100%',
 		display: 'flex',

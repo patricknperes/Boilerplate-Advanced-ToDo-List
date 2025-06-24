@@ -141,6 +141,7 @@ const advancedToDoHomeStyle: ItoDoHomeStyles = {
         borderRadius: "5px",
         fontFamily: "var(--font-family)",
         backgroundColor: "var(--color-accent)",
+        borderColor: "var(--color-accent)",
         fontSize: "var(--font-size-medium-small)",
         padding: "0.75rem 1.5rem",
         fontWeight: "var(--font-normal)",
@@ -148,6 +149,7 @@ const advancedToDoHomeStyle: ItoDoHomeStyles = {
         "&:hover": {
             backgroundColor: "var(--color-accent-dark)",
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+            borderColor: "var(--color-accent-dark)",
         },
         '@media (max-width: 399px)': {
             width: "100%",

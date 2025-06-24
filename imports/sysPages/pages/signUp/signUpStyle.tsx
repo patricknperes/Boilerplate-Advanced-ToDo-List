@@ -23,7 +23,7 @@ interface ISignUpStyles {
 const SignUpStyle: ISignUpStyles = {
 	Background: styled(Box)(({ theme }) => ({
 		width: '100%',
-		backgroundImage: 'url(/images/wireframe/bg-florest.svg)',
+		backgroundImage: 'url(/images/wireframe/bg-purple.jpg)',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
