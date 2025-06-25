@@ -16,8 +16,8 @@ const SysAppBarStyles: ISysAppBarStyles = {
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'center',
-		backgroundColor: theme.palette.todoColors.enchantBlue,
-		color: theme.palette.todoColors.bege
+		backgroundColor: 'var(--color-accent)',
+		color: 'var(--title-color)',
 	})),
 	container: styled(Box)(({ theme }) => ({
 		display: 'flex',
@@ -48,7 +48,7 @@ const SysAppBarStyles: ISysAppBarStyles = {
 		[theme.breakpoints.down('md')]: { display: 'flex' }
 	})),
 	iconButton: styled(IconButton)(({ theme }) => ({
-		color: theme.palette.primary.bege,
+		color: 'var(--title-color)',
 		padding: 0,
 		margin: 0,
 		'& .MuiSvgIcon-root:hover': { color: theme.palette.sysAction?.bgDisabled }

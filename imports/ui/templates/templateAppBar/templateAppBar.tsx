@@ -22,12 +22,6 @@ export const TemplateAppBar: React.FC<ITemplateAppBar> = ({ children, menuOption
 
 const BoilerplateLogo: React.FC = () => {
 	return (
-		<Typography
-			sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', fontWeight:700 }}
-			color={(theme) => theme.palette.primary.contrastText}
-			variant="inherit">
-			<TemplateAppBarStyles.Logo />
-			Advanced <br /> To-Do
-		</Typography>
+		<TemplateAppBarStyles.Logo />
 	);
 };

@@ -13,21 +13,22 @@ interface ITemplateAppBarStyles {
 
 const TemplateAppBarStyles: ITemplateAppBarStyles = {
 	Logo: styled(Box)(({ theme }) => ({
-		width: 'clamp(50px, 13vw, 10px)',
-		height: 'clamp(50px, 13vw, 10px)',
+		width: 'clamp(170px, 8vw, 170px)', // Reduced width and adjusted vw for proportionality
+		height: 'clamp(60px, 3vw, 60px)',  // Adjusted height to maintain aspect ratio
 		backgroundColor: 'white',
-		mask: "url('/images/task-line.svg') no-repeat center / contain",
-		WebkitMask: "url('/images/task-line.svg') no-repeat center / contain",
+		mask: "url('/images/logo-white.svg') no-repeat center / contain",
+		WebkitMask: "url('/images/logo-white.svg') no-repeat center / contain",
 		padding: 0,
 		[theme.breakpoints.down('sm')]: {
-			width: 'clamp(60px, 10vw, 80px)',
-			height: 'clamp(60px, 10vw, 80px)'
+			width: 'clamp(170px, 8vw, 170px)',
+			height: 'clamp(55px, 3vw, 55px)',
 		},
 		[theme.breakpoints.up('md')]: {
 			marginRight: 0,
-			marginBottom: 0
+			marginBottom: 0,
 		}
 	})),
+
 	container: styled(Box)({
 		display: 'flex',
 		flexDirection: 'column',
