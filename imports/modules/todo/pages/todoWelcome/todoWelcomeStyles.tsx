@@ -3,10 +3,12 @@ import { styled } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
 import { sysSizing } from '/imports/ui/materialui/styles';
 import { SysSectionPaddingXY } from '/imports/ui/layoutComponents/sysLayoutComponents';
+import { Typography } from '@mui/material';
 
 interface ITodoWelcomeStyles {
-	Background: ElementType<BoxProps>;
 	Container: ElementType<BoxProps>;
+	Heading: ElementType<BoxProps>;
+	Label: ElementType<BoxProps>;
 	ListContainer: ElementType<BoxProps>;
 	ListWrapper: ElementType<BoxProps>;
 	NothingHere: ElementType<BoxProps>;
@@ -16,23 +18,32 @@ interface ITodoWelcomeStyles {
 }
 
 const TodoWelcomeStyles: ITodoWelcomeStyles = {
-
-	Background: styled(Box)(({ theme }) => ({
-		width: '100%',
-		backgroundColor: 'var(--body-color)',
-	})),
-
 	Container: styled(SysSectionPaddingXY)(({ theme }) => ({
-		width: '100%',
-		maxWidth: '1200px',
-		margin: '0 auto',
 		display: 'flex',
 		flexDirection: 'column',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
-		justifyContent: 'center',
-		padding: '7.5rem 2.5rem',
-		[theme.breakpoints.down('md')]: {
-			padding: '4.5rem 2.5rem',
+		width: '100%',
+		minHeight: '100dvh',
+		overflowY: 'auto',
+		gap: sysSizing.spacingFixedMd,
+		backgroundColor: 'var(--title-color)',
+		backgroundAttachment: 'fixed',
+		padding: '7.5rem, 1.5rem',
+		[theme.breakpoints.down('sm')]: {
+			padding: '3vh 1rem'
+		}
+	})),
+
+	Heading: styled(Box)(({ theme }) => ({
+		color: 'white',
+		fontWeight: 'bold',
+		width: '100%',
+		fontSize: '2.5rem',
+		textAlign: 'start',
+		selfAlign: 'flex-start',
+		[theme.breakpoints.down('sm')]: {
+			fontSize: '2.0rem'
 		}
 	})),
 

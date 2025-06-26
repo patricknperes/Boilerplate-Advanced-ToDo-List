@@ -29,77 +29,75 @@ const todoWelcomeView = () => {
 		onDeleteButtonClick,
 		currentUser
 	} = controller;
-	const { Background, Container, ListContainer, ListWrapper, NothingHere, Heading1, Heading2, LoadingContainer } =
+	const { Container, ListContainer, ListWrapper, NothingHere, Heading1, Heading2, LoadingContainer } =
 		TodoWelcomeStyles;
 
 	return (
-		<Background>
-			<Container>
-				<Heading1>Olá, {currentUser}!</Heading1>
-				<Heading2>
-					Seus projetos muito mais organizados. Veja as tarefas adicionadas por seu time, por você e para você!
-				</Heading2>
-				{loading ? (
-					<LoadingContainer>
-						<CircularProgress />
-						<Typography variant="body1">Aguarde, carregando informações...</Typography>
-					</LoadingContainer>
-				) : tasks.length > 0 ? (
-					<ListContainer>
-						<Typography variant="h4" sx={{ margin: '16px 0 8px' }}>
-							Adicionadas recentemente
+		<Container>
+			<Heading1>Olá, {currentUser}!</Heading1>
+			<Heading2>
+				Seus projetos muito mais organizados. Veja as tarefas adicionadas por seu time, por você e para você!
+			</Heading2>
+			{loading ? (
+				<LoadingContainer>
+					<CircularProgress />
+					<Typography variant="body1">Aguarde, carregando informações...</Typography>
+				</LoadingContainer>
+			) : tasks.length > 0 ? (
+				<ListContainer>
+					<Typography variant="h4" sx={{ margin: '16px 0 8px' }}>
+						Adicionadas recentemente
+					</Typography>
+					{tasks.map((task) => (
+						<Task
+							key={task._id}
+							id={task._id!}
+							checked={task.checked}
+							username={task.usuario}
+							tarefa={task.title}
+							visibilidade={task.visibilidade}
+							description={task.description}
+							createdby={task.createdby!}
+							onEditButtonClick={onEditButtonClick}
+							onViewClick={onViewClick}
+							handleTaskStatusChange={handleTaskStatusChange}
+							onDeleteButtonClick={onDeleteButtonClick}
+						/>
+					))}
+				</ListContainer>
+			) : (
+				<ListContainer>
+					<Typography variant="h4" sx={{ margin: '16px 0 8px' }}>
+						Adicionadas recentemente
+					</Typography>
+					<Box
+						sx={{
+							width: '100%',
+							height: '100%',
+							display: 'flex',
+							alignItems: 'center',
+							mb: 2,
+							flexDirection: 'column'
+						}}>
+						<Typography variant="h5" color="sysText.disabled">
+							Nenhuma tarefa encontrada
 						</Typography>
-						{tasks.map((task) => (
-							<Task
-								key={task._id}
-								id={task._id!}
-								checked={task.checked}
-								username={task.usuario}
-								tarefa={task.title}
-								visibilidade={task.visibilidade}
-								description={task.description}
-								createdby={task.createdby!}
-								onEditButtonClick={onEditButtonClick}
-								onViewClick={onViewClick}
-								handleTaskStatusChange={handleTaskStatusChange}
-								onDeleteButtonClick={onDeleteButtonClick}
-							/>
-						))}
-					</ListContainer>
-				) : (
-					<ListContainer>
-						<Typography variant="h4" sx={{ margin: '16px 0 8px' }}>
-							Adicionadas recentemente
+						<Typography variant="body2" color="sysText.disabled">
+							Acesse a lista de tarefas
 						</Typography>
-						<Box
-							sx={{
-								width: '100%',
-								height: '100%',
-								display: 'flex',
-								alignItems: 'center',
-								mb: 2,
-								flexDirection: 'column'
-							}}>
-							<Typography variant="h5" color="sysText.disabled">
-								Nenhuma tarefa encontrada
-							</Typography>
-							<Typography variant="body2" color="sysText.disabled">
-								Acesse a lista de tarefas
-							</Typography>
-							<NothingHere />
-						</Box>
-					</ListContainer>
-				)}
+						<NothingHere />
+					</Box>
+				</ListContainer>
+			)}
 
-				<SysFab
-					variant="extended"
-					text="Ir para tarefas"
-					endIcon={<SysIcon name={'arrowForward'} />}
-					fixed={true}
-					onClick={handleViewAllTasks}
-				/>
-			</Container>
-		</Background>
+			<SysFab
+				variant="extended"
+				text="Ir para tarefas"
+				endIcon={<SysIcon name={'arrowForward'} />}
+				fixed={true}
+				onClick={handleViewAllTasks}
+			/>
+		</Container>
 	);
 };
 export default todoWelcomeView;
